@@ -1,13 +1,12 @@
-from sys import path_hooks
-
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from book.views import BookViewSet, BookCategoryViewSet
+from apps.book.views import BookViewSet, BookCategoryViewSet, BookGenreViewSet
 
 router = DefaultRouter()
 router.register('category', BookCategoryViewSet)
 router.register('book', BookViewSet)
+router.register('genre', BookGenreViewSet)
 
 urlpatterns = [
     path('', include(router.urls))

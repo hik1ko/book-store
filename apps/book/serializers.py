@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 
-from book.models import BookCategory, Book
+from apps.book.models import BookCategory, Book, BookGenre
 
 
 class BookCategorySerializer(ModelSerializer):
@@ -13,3 +13,8 @@ class BookSerializer(ModelSerializer):
     class Meta:
         model = Book
         fields = ("id", "title", "summary", "cover", "category")
+
+class BookGenreSerializer(ModelSerializer):
+    class Meta:
+        model = BookGenre
+        fields = ("id", "name")
