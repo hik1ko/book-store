@@ -1,3 +1,4 @@
+from django.views.generic import TemplateView
 from rest_framework.viewsets import ModelViewSet
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
@@ -21,3 +22,6 @@ class BookGenreViewSet(ModelViewSet):
     queryset = BookGenre.objects.all()
     serializer_class = BookGenreSerializer
     authentication_classes = (JWTAuthentication,)
+
+class HomePageTemplateView(TemplateView):
+    template_name = 'index.html'

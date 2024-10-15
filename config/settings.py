@@ -33,7 +33,7 @@ DEBUG = os.getenv("DEBUG") == "True"
 # ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(',')
 ALLOWED_HOSTS = ['*']
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 
 # Application definition
 
@@ -163,9 +163,10 @@ if os.getenv("USE_S3") == 'True':
             },
         },
     }
-
+    AWS_S3_CUSTOM_DOMAIN = f'lithium-site-bucket.s3.amazonaws.com'
     DEFAULT_FILE_STORAGE = "config.settings.storages.default"  # Replace "config.settings" with your actual settings path
     STATICFILES_STORAGE = "config.settings.storages.staticfiles"
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/'
 else:
     STATIC_ROOT = BASE_DIR / 'static'
     MEDIA_URL = 'media/'
