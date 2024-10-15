@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lithium</title>
   <style>
-    /* The @font-face rule is used to define a custom font that you want to use on your webpage. */
+    /* The @font-face rule to load the custom font */
     @font-face {
       font-family: 'TheFont';
       src: url("https://garet.typeforward.com/assets/fonts/shared/TFMixVF.woff2") format('woff2');
     }
 
+    /* Main body styling with flexbox for centering */
     body.breathe-animation {
       display: flex;
       flex-direction: column;
@@ -19,11 +20,14 @@
       background-color: black;
       height: 100vh;
       color: white;
+      margin: 0;
+      padding: 0;
     }
 
+    /* Main text (lithium) styling with responsive font size */
     .breathe-animation span {
       font-family: 'TheFont';
-      font-size: clamp(7vw, 6vw, 50vh);
+      font-size: clamp(7vw, 8vw, 50vh); /* Responsive font size */
       color: white;
       text-align: center;
       animation: letter-breathe 3s ease-in-out infinite;
@@ -39,10 +43,10 @@
       }
     }
 
-    /* Countdown Timer Styling */
+    /* Countdown Timer Styling with responsive font size */
     .countdown {
       margin-top: 20px;
-      font-size: 40px;
+      font-size: clamp(5vw, 7vw, 40px); /* Responsive font size */
       text-align: center;
       font-family: 'Courier New', Courier, monospace;
     }
@@ -50,9 +54,30 @@
     /* Text below the countdown */
     .countdown-text {
       margin-top: 10px;
-      font-size: 30px;
+      font-size: clamp(4vw, 6vw, 30px); /* Responsive font size */
       color: white;
       text-align: center;
+    }
+
+    /* Responsive layout adjustments for smaller screens */
+    @media (max-width: 600px) {
+      body.breathe-animation {
+        padding: 10px;
+        justify-content: flex-start; /* Adjusts content for smaller screen heights */
+      }
+
+      .breathe-animation span {
+        font-size: clamp(12vw, 20vw, 35vh); /* Smaller text for very small screens */
+      }
+
+      .countdown {
+        margin-top: 10px;
+        font-size: clamp(6vw, 8vw, 25px); /* Adjust countdown font size */
+      }
+
+      .countdown-text {
+        font-size: clamp(5vw, 7vw, 20px); /* Adjust explanation text size */
+      }
     }
   </style>
 </head>
